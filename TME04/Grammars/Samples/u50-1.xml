@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='ISO-8859-15' ?>
+
+<programme1><!-- test:name description='calcul de discriminant' -->
+  <sequence>
+    <blocUnaire>
+      <variable nom='a' />
+      <valeur>
+	<entier valeur='3' />
+      </valeur>
+      <corps>
+	<blocUnaire>
+	  <variable nom='b' />
+	  <valeur>
+	    <entier valeur='5' />
+	  </valeur>
+	  <corps>
+	    <blocUnaire>
+	      <variable nom='c' />
+	      <valeur>
+		<entier valeur='2' />
+	      </valeur>
+	      <corps>
+		<blocUnaire>
+		  <variable nom='r' />
+		  <valeur>
+		    <operationBinaire operateur="+">
+		      <operandeGauche>
+			<operationBinaire operateur="*">
+			  <operandeGauche>
+			    <variable nom='b' />
+			  </operandeGauche>
+			  <operandeDroit>
+			    <variable nom='b' />
+			  </operandeDroit>
+			</operationBinaire>
+		      </operandeGauche>
+		      <operandeDroit>
+			<operationBinaire operateur='*' >
+			  <operandeGauche>
+			    <entier valeur='4' />
+			  </operandeGauche>
+			  <operandeDroit>
+			    <operationBinaire operateur='*' >
+			      <operandeGauche>
+				<variable nom='a' />
+			      </operandeGauche>
+			      <operandeDroit>
+				<variable nom='c' />
+			      </operandeDroit>
+			    </operationBinaire>
+			  </operandeDroit>
+			</operationBinaire>
+		      </operandeDroit>
+		    </operationBinaire>
+		  </valeur>
+		  <corps>
+		    <alternative>
+		      <condition>
+			<operationBinaire operateur='&gt;'>
+			  <operandeGauche>
+			    <variable nom='r'/>
+			  </operandeGauche>
+			  <operandeDroit>
+			    <entier valeur='0' />
+			  </operandeDroit>
+			</operationBinaire>
+		      </condition>
+		      <consequence>
+			<invocationPrimitive fonction='print'>
+			  <chaine>discriminant positif: deux racines</chaine>
+			</invocationPrimitive>
+		      </consequence>
+		      <alternant>
+			<alternative>
+			  <condition>
+			    <operateurBinaire operateur='&lt;'>
+			      <operandeGauche>
+				<variable nom='r'/>
+			      </operandeGauche>
+			      <operandeDroit>
+				<entier valeur='0' />
+			      </operandeDroit>
+			    </operateurBinaire>
+			  </condition>
+			  <consequence>
+			    <invocationPrimitive fonction='print'>
+			  <chaine>discriminant negatif: aucune racine</chaine>
+			    </invocationPrimitive>
+			  </consequence>
+			  <alternant>
+			    <invocationPrimitive fonction='print'>
+			  <chaine>discriminant nul: une seule racine</chaine>
+			    </invocationPrimitive>
+			  </alternant>
+			</alternative>
+		      </alternant>
+		    </alternative>
+		  </corps>
+		</blocUnaire>
+	      </corps>
+	    </blocUnaire>
+	  </corps>
+	</blocUnaire>
+      </corps>
+    </blocUnaire>
+  </sequence>
+</programme1>

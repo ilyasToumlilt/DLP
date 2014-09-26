@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <include href="grammar1.rng">
+    <a:documentation/>
+    <!--
+      version TME2 :
+      TME2 exo1.3 :
+      Source : ./grammar1.rnc
+      Autor : Ilyas Waye <ilyas.waye@gmail.com>
+      Traits ajoutés :
+        -> affectations
+        -> boucles while
+        -> blocs locaux n-aires
+        -> définition et application de fonction
+    -->
+    <a:documentation/>
+  </include>
+  <!-- Extension de la grammaire précédente : -->
+  <start combine="choice">
+    <ref name="programme2"/>
+  </start>
+  <define name="expression" combine="choice">
+    <ref name="affectation"/>
+  </define>
+  <define name="expression" combine="choice">
+    <ref name="invocation"/>
+  </define>
+  <define name="instruction" combine="choice">
+    <ref name="boucle"/>
+  </define>
+  <define name="instruction" combine="choice">
+    <ref name="blocLocal"/>
+  </define>
+  <!--
+    le nouveau programme prend en compte les suites de définitions
+    de fonctions
+  -->
+  <define name="programme2">
+    <element name="programme2">
+      <zeroOrMore>
+        <ref name="definitionFonction"/>
+      </zeroOrMore>
+      <ref name="instructions"/>
+    </element>
+  </define>
+  <!--
+    definition d'une fonction qui a besoin d'un nom, des paramètres
+    ( variables ) et un corps ( instructions )
+  -->
+  <define name="definitionFonction">
+    <element name="definitionFonction">
+      <attribute name="nom">
+        <data type="Name">
+          <except>
+            <data type="Name">
+              <param name="pattern">(ilp|ILP)</param>
+            </data>
+          </except>
+        </data>
+      </attribute>
+      <element name="arguments">
+        <zeroOrMore>
+          <ref name="variable"/>
+        </zeroOrMore>
+      </element>
+      <element name="corps">
+        <ref name="instructions"/>
+      </element>
+    </element>
+  </define>
+  <!--
+    l'affectation prend une variable cible et une expression comme valeur.
+    à rajouter ? += -= ...
+  -->
+  <define name="affectation">
+    <element name="affectation">
+      <attribute name="nom">
+        <data type="Name">
+          <except>
+            <data type="Name">
+              <param name="pattern">(ilp|ILP)</param>
+            </data>
+          </except>
+        </data>
+      </attribute>
+      <element name="valeur">
+        <ref name="expression"/>
+      </element>
+    </element>
+  </define>
+  <!-- boucle while -->
+  <define name="boucle">
+    <element name="boucle">
+      <element name="condition">
+        <ref name="expression"/>
+      </element>
+      <element name="corps">
+        <ref name="instructions"/>
+      </element>
+    </element>
+  </define>
+  <!--
+    un blocLocal va définir un certain nombre ( peut être nul )
+    de variables locales 
+  -->
+  <define name="blocLocal">
+    <element name="blocLocal">
+      <element name="liaisons">
+        <zeroOrMore>
+          <element name="liaison">
+            <ref name="variable"/>
+            <element name="initialisation">
+              <ref name="expression"/>
+            </element>
+          </element>
+        </zeroOrMore>
+      </element>
+      <element name="corps">
+        <ref name="instructions"/>
+      </element>
+    </element>
+  </define>
+  <define name="invocation">
+    <element name="invocation">
+      <element name="fonction">
+        <ref name="expression"/>
+      </element>
+      <element name="arguments">
+        <zeroOrMore>
+          <ref name="expression"/>
+        </zeroOrMore>
+      </element>
+    </element>
+  </define>
+</grammar>
+<!-- fin grammar1-tme2.rnc -->
