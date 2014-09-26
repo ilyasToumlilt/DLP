@@ -1,8 +1,0 @@
-include "grammar2.rnc"
-
-instruction |= aMoinsQue
-
-aMoinsQue = element aMoinsQue {
-  element condition { expression },
-  element corps { instructions }
-}
