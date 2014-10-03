@@ -2,7 +2,8 @@
 # version TME2 :
 # TME2 exo1.3 :
 # Source : ./grammar1.rnc
-# Autor : Ilyas Waye <ilyas.waye@gmail.com>
+# Author : Ilyas Toumlilt <toumlilt.ilyas@gmail.com>
+#
 # Traits ajoutés :
 #   -> affectations
 #   -> boucles while
