@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  <include href="grammar2.rng"/>
+  <define name="instruction" combine="choice">
+    <ref name="aMoinsQue"/>
+  </define>
+  <define name="aMoinsQue">
+    <element name="aMoinsQue">
+      <element name="condition">
+        <ref name="expression"/>
+      </element>
+      <element name="corps">
+        <ref name="instructions"/>
+      </element>
+    </element>
+  </define>
+</grammar>
