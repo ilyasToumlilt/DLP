@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ens/MI016/!svn/ver/1240/trunk/Compiler/Java/src/fr/upmc/ilp/ilp4tme7/test
+END
+ProcessEvalTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ens/MI016/!svn/ver/1240/trunk/Compiler/Java/src/fr/upmc/ilp/ilp4tme7/test/ProcessEvalTest.java
+END
+ProcessInliningTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ens/MI016/!svn/ver/1240/trunk/Compiler/Java/src/fr/upmc/ilp/ilp4tme7/test/ProcessInliningTest.java
+END
+ProcessInvokedFunctionsTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ens/MI016/!svn/ver/1240/trunk/Compiler/Java/src/fr/upmc/ilp/ilp4tme7/test/ProcessInvokedFunctionsTest.java
+END
+WholeTestSuite.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ens/MI016/!svn/ver/1230/trunk/Compiler/Java/src/fr/upmc/ilp/ilp4tme7/test/WholeTestSuite.java
+END
+ProcessTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ens/MI016/!svn/ver/1240/trunk/Compiler/Java/src/fr/upmc/ilp/ilp4tme7/test/ProcessTest.java
+END
